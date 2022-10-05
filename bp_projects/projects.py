@@ -21,3 +21,7 @@ def walruses():
 @app_projects.route('/hawkers/')
 def hawkers():
     return render_template("hawkers.html")
+
+@app_projects.route('/stub/')
+def stub():
+    return render_template("stub.html")
