@@ -4,6 +4,9 @@ import requests  # used for testing
 import random
 
 from model_jokes import *
+from model_symptoms import *
+
+
 
 app_api = Blueprint('api', __name__,
                    url_prefix='/api/jokes')
@@ -95,3 +98,5 @@ if __name__ == "__main__":
             print(response.json())
         except:
             print("unknown error")
+
+        
