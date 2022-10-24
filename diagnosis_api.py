@@ -21,10 +21,16 @@ class DiagnosisAPI:
     class _ReadSymptoms(Resource):
         def get(self):
             return jsonify(get_symptoms())
+    
+    # getDiagnosis()
+    class _ReadDiagnosis(Resource):
+        def get(self):
+            return jsonify(get_all_diagnosis())
 
     # building RESTapi resources/interfaces, these routes are added to Web Server
     d_api.add_resource(_Create, '/create/<string:diagnosis>')
     d_api.add_resource(_ReadSymptoms, '/symptoms')
+    d_api.add_resource(_ReadDiagnosis, '/')
     
 # if __name__ == "__main__": 
 #     # server = "http://127.0.0.1:5000" # run local
