@@ -1,27 +1,45 @@
-<!-- Extending the project layout, as this file will do minor customizations -->
-{% extends "layouts/project.html" %}
+{% extends "layouts/base.html" %}
 
-<!-- Setting up variables to customize "project" details to be specific to walruses -->
-{% set project = "Walruses" %}
-{% set overview = "https://nighthawkcodingsociety.com/projectsearch/dash" %}
-{% set scrumboard = "https://github.com/ridhimainukurti/group-2/projects/1" %}
-{% set repo = "https://github.com/ridhimainukurti/group-2" %}
-{% set authors = "https://wasc.nighthawkcodingsociety.com/about"  %}
+{% set project = "Frontend Process" %}
 
-<!-- Setting up a block replacement to customize background to RINGS -->
+{% block body %}
+    <div class="px-5 py-5 mx-auto">
+        <h1 class="text-primary"><strong>Steps behind Frontend</strong></h1>
+        <p class="text-secondary">Vivian Ni: Frontend Developer</p>
+        <p> Our group is working with two APIs:
+            <ol>
+                <li>GetSymptoms API from Rapid API</li>
+                <li>Custom API adapted from jokes API</li>
+            </ol>
+        </p>
+    </div>
+<div class="px-5 py-5 mx-auto">
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <img class="card-img-top" src="{{ url_for('static', filename='assets/vase.jpg') }}" alt="Symptom RapidAPI" height="500">
+                <div class="card-body">
+                <h5 class="card-title">Symptom RapidAPI</h5>
+                <p class="card-text">
+                   insert code or image
+                </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <img class="card-img-top" src="{{ url_for('static', filename='assets/goals.png') }}" alt="Custom API" height="500">
+                <div class="card-body">
+                <h5 class="card-title">Custom API</h5>
+                <p class="card-text">
+                    insert code or image
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
 {% block background %}
-    <script src="{{ url_for('static', filename='js/three.r119.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/vanta.rings.min.js') }}"></script>
-    <script>
-        VANTA.RINGS({
-            el: "body",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00
-        })
-    </script>
 {% endblock %}
