@@ -30,6 +30,9 @@ diagnosis_database = {
   "schizophrenia": ['Anxiety', 'Paranoia', 'Hallucination'],
 }
 
+#array that includes treatment advice 
+#connect user input with algorithm 
+
 def get_symptoms():
     return symptoms_database
 
