@@ -1,24 +1,31 @@
 import selenium
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-# user_symptoms will come in as a string ("0,3,7") from front end, the string will be parsed into a list like [0, 3, 7]
-user_symptoms = [0, 3, 7]
+
+# medical website base address
 medical_website = "https://medlineplus.gov/"
 
+options = webdriver.ChromeOptions()
 
-browser = webdriver.Chrome()
-
-browser.get('https://en.wikipedia.org/wiki/Main_Page')
+# chrome's absolute path
+options.binary_location = "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe"
+# chrome driver absolute path
+chrome_driver_binary = "/usr/bin/chromedriver"
+driver = webdriver.Chrome(chrome_driver_binary, options=options)
+driver.get(medical_website)
 
 print("Enter a keyword to search on wikipedia: ", end='')
 keyword = input()
 
-elem = browser.find_element_by_id('searchInput')  # Find the search box
+elem = driver.find_element_by_id('searchInput')  # Find the search box
 elem.send_keys(keyword + Keys.RETURN)
 
 # do something with the opened page
 
-browser.quit()
+driver.quit()
+
+# user_symptoms will come in as a string ("0,3,7") from front end, the string will be parsed into a list like [0, 3, 7]
+user_symptoms = [0, 3, 7]
 
 # possible symptoms that the user can check mark
 symptoms_database = [
