@@ -5,24 +5,6 @@ from selenium.webdriver.common.keys import Keys
 # medical website base address
 medical_website = "https://medlineplus.gov/"
 
-options = webdriver.ChromeOptions()
-
-# chrome's absolute path
-options.binary_location = "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe"
-# chrome driver absolute path
-chrome_driver_binary = "/usr/bin/chromedriver"
-driver = webdriver.Chrome(chrome_driver_binary, options=options)
-driver.get(medical_website)
-
-print("Enter a keyword to search on wikipedia: ", end='')
-keyword = input()
-
-elem = driver.find_element_by_id('searchInput')  # Find the search box
-elem.send_keys(keyword + Keys.RETURN)
-
-# do something with the opened page
-
-driver.quit()
 
 # user_symptoms will come in as a string ("0,3,7") from front end, the string will be parsed into a list like [0, 3, 7]
 user_symptoms = [0, 3, 7]
@@ -45,10 +27,10 @@ diagnosis_database = {
   "brain Cancer": ['Headache', 'Blurred vision'],
   "chlamydia": ['Bleeding', 'Discharge'],
   "COVID-19": ['Fever', 'Sore throat', 'Runny nose'],
-  "depression": ['Fatigue', 'Imsomnia', 'Agitation'],
+  "depression": ['Fatigue', 'Insomnia', 'Agitation'],
   "diarrhea": ['Fever', 'Cramps', 'Bloating', 'Nausea', 'Vomiting'],
   "ear infection": ['Fever', 'Ear Pain'],
-  "endometriosis": ['Stomache ache', 'Bleeding'],
+  "endometriosis": ['Stomach ache', 'Bleeding'],
   "fibromyalgia": ['Fatigue', 'Depression', 'Anxiety', 'Insomnia', 'Headache'],
   "flu": ['Fever', 'Cough', 'Runny nose'],
   "lupus": ['Fatigue', 'Fever'],
