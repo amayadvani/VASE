@@ -16,7 +16,16 @@ class DiagnosisAPI:
     class _Create(Resource):
         def post(self, diagnosis):
             pass
-            
+
+    # postSymptoms()
+    class _GetDiagnosis(Resource):
+        def get(self, symp_list):
+            symps = symp_list.split(',')
+            symp_index = []
+            for s in symps:
+                symp_index.append(symptoms_database.index(s.strip()))
+            return get_diagnosis(symp_index)
+
     # getSymptoms()
     class _ReadSymptoms(Resource):
         def get(self):
@@ -36,6 +45,7 @@ class DiagnosisAPI:
     d_api.add_resource(_ReadSymptoms, '/symptoms')
     d_api.add_resource(_ReadDiagnosis, '/')
     d_api.add_resource(_ReadTreatments, '/treatments')
+    d_api.add_resource(_GetDiagnosis, '/diagnosis/<string:symp_list>')
     
 # if __name__ == "__main__": 
 #     # server = "http://127.0.0.1:5000" # run local
