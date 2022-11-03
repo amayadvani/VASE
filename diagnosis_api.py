@@ -27,6 +27,10 @@ class DiagnosisAPI:
             response = jsonify(get_diagnosis(symp_index))
             return response
 
+    class _GetSomething(Resource):
+        def get(self):
+            return jsonify("this is a test")
+
     # getSymptoms()
     class _ReadSymptoms(Resource):
         def get(self):
@@ -47,8 +51,9 @@ class DiagnosisAPI:
     d_api.add_resource(_ReadDiagnosis, '/')
     d_api.add_resource(_ReadTreatments, '/treatments')
     d_api.add_resource(_GetDiagnosis, '/diagnosis/<string:symp_list>')
+    d_api.add_resource(_GetSomething, '/something')
     
-# if __name__ == "__main__": 
+# if __name__ == "__main__": S
 #     # server = "http://127.0.0.1:5000" # run local
 #     server = 'https://flask.nighthawkcodingsociety.com' # run from web
 #     url = server + "/api/jokes"
