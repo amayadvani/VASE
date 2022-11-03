@@ -24,7 +24,9 @@ class DiagnosisAPI:
             symp_index = []
             for s in symps:
                 symp_index.append(symptoms_database.index(s.strip()))
-            return get_diagnosis(symp_index)
+            response = jsonify(get_diagnosis(symp_index))
+            response.headers.add('Access-Control-Allow-Origin', '*')
+            return response
 
     # getSymptoms()
     class _ReadSymptoms(Resource):
